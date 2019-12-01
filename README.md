@@ -20,11 +20,11 @@ Chạy lệnh `python main.py` để thấy được kết quả
 
 ![](./assets/1.png)
 
-### 2.2 Ảnh các mảnh nhỏ
+### 2.3 Ảnh các mảnh nhỏ
 
 ![](./assets/1_random.png)
 
-### 2.3 Kết quả
+### 2.4 Kết quả
 
 ![](./assets/result.png)
 
