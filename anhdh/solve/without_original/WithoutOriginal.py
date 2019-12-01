@@ -115,5 +115,5 @@ class WithoutOriginal(Solver):
         self.find_diff_list(self.listsubimage)
         [ piece.init_different_side() for piece in self.listsubimage]
 
-        # image = draw_matrix(self.matrix, self.listsubimage)
-        # image.save("./assets/without_original.png")
+        image = draw_matrix(self.matrix, self.listsubimage)
+        image.save("./assets/without_original.png")
