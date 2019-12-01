@@ -36,7 +36,8 @@ class Original(Solver):
             for idx, item in enumerate(temp2):
                 self.matrix[i][idx] = item.piecenum
 
-        draw_matrix(self.matrix, self.listsubimage)
+        image = draw_matrix(self.matrix, self.listsubimage)
+        image.save(os.path.join(self.folder, "result.png"))
     
 
     def match_image(self, gray_image_origin, subimage, ratio):

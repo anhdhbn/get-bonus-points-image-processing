@@ -48,20 +48,12 @@ class Maker(Common):
     def make_cut_path(self):
         self.write_header()
 
-        # Horizontal lines.
-        # column = 0
-        # row = 0
-        # start = Vector(column*WIDTH/COLUMN_COUNT, (row + 1)*HEIGHT/ROW_COUNT)
-        # end = Vector((column + 1)*WIDTH/COLUMN_COUNT, (row + 1)*HEIGHT/ROW_COUNT)
-        # print(start, end)
         for row in range(self.number_row - 1):
             for column in range(self.number_column):
                 start = Vector(column*self.width/self.number_column, (row + 1)*self.height/self.number_row)
                 end = Vector((column + 1)*self.width/self.number_column, (row + 1)*self.height/self.number_row)
                 self.make_knob(start, end, "#000000")
-                # print(start, end)
 
-        # Vertical lines.
         for row in range(self.number_row):
             for column in range(self.number_column - 1):
                 start = Vector((column + 1)*self.width/self.number_column, row*self.height/self.number_row)
@@ -73,10 +65,6 @@ class Maker(Common):
         
     
     def append_circle(self, p, v, n, center, radius, start_angle, end_angle):
-        """Append a circle to list of Vector points "p". The orthonormal "v" and
-        "n" vectors represent the basis vectors for the circle. The "center"
-        vector is the circle's center, and the start and end angle are relative
-        to the basis vectors. An angle of 0 means all "v", tau/4 means all "n"."""
 
         # Fraction of the circle we're covering, in radians.
         angle_span = end_angle - start_angle
@@ -90,11 +78,6 @@ class Maker(Common):
             p.append(point)
 
     def make_knob(self, start, end, color):
-        """Make a knob (the part that sticks out from one piece into another).
-        This includes the entire segment on the side of a square.  "start" and
-        "end" are points that represent the ends of the line segment. In other
-        words, if we have a puzzle piece with four corners, then call this
-        function four times with the four corners in succession."""
 
         # Length of the line on the side of the puzzle piece.
 
@@ -126,8 +109,6 @@ class Maker(Common):
         # Radius of the larger circle that makes the actual knob.
         large_radius = small_radius*1.3
 
-        # Magic happens here. See this page for an explanation:
-        # http://www.teamten.com/lawrence/projects/jigsaw-puzzle-on-laser-cutter/
         tri_base = (knob_end - knob_start).length()/2
         tri_hyp = small_radius + large_radius
         tri_height = math.sqrt(tri_hyp**2 - tri_base**2)
@@ -152,4 +133,3 @@ class Maker(Common):
         p.append(end)
 
         self.write_polyline(p, color)
-

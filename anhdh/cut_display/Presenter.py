@@ -43,7 +43,7 @@ class Presenter(Common):
 
         for i in range(len(self.pieces)):
             _, (a, b, c, d) = self.get_rand_piece()
-            self.imagecutrandom.paste(self.listsubimg[i], (a*2, b*2))
+            self.imagecutrandom.paste(self.listsubimg[i], (int(a*1.2), int(b*1.2)))
         
         for i in range(self.width*2):
             for j in range(self.height*2):
@@ -52,7 +52,7 @@ class Presenter(Common):
                 if color == (0, 0, 0, 0):
                     self.imagecutrandom.putpixel((i, j), (255, 255,  255, 255))
         
-        border = Image.new('RGBA', (self.width*2+10, self.height*2+10), (255, 255,  255, 255))
+        border = Image.new('RGBA', (int(self.width*1.2+10), int(self.height*1.2+10)), (255, 255,  255, 255))
         border.paste(self.imagecutrandom, (10, 10))
         self.imagecutrandom = border
         self.imagecutrandom.show()

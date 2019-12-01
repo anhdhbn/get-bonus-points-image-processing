@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 import os
 import json
-from skimage import color
+# from skimage import color
 
 from anhdh.solve.without_original.Piece import Piece
 from anhdh.solve.TypeEdge import *

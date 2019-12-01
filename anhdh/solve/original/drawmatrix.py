@@ -82,6 +82,7 @@ def draw_matrix(matrix, subimage):
             # image.show()
     image = clean_img(image)
     image.show()
+    return image
 
 def join_img_right(image1, image2, position):
     width1, height1 = image1.size
