@@ -9,7 +9,7 @@ from anhdh.cut_display.Presenter import Presenter
 from anhdh.solve.original.Original import Original
 from anhdh.solve.without_original.WithoutOriginal import WithoutOriginal
 
-path = "./1.jpg"
+path = "./5.jpg"
 
 maker = Maker(path)
 maker.make_cut_path()

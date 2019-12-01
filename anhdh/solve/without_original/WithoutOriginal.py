@@ -4,7 +4,7 @@
 from anhdh.solve.Solver import Solver
 from anhdh.solve.without_original.Pieces import Pieces
 from anhdh.solve.TypeEdge import TypeEdge, Direction
-from anhdh.solve.without_original.diff import DiffRGB
+from anhdh.solve.without_original.diff import DiffRGB,DiffLab
 from anhdh.solve.without_original import utilities
 from anhdh.solve.without_original import matrix_creator
 from anhdh.solve.original.drawmatrix import draw_matrix
@@ -90,7 +90,30 @@ class WithoutOriginal(Solver):
         for i in range(1, self.num_vertical - 1):
             self.matrix[i][0] = arr.matrix[i][0]
 
+    def solve_ver(self):
+        ver_half, hor_half = self.num_vertical/2, self.num_horizontal/2
+        for i in range(1, self.num_horizontal - 1):
+            arr_ver  = [[] for i in range(1, self.num_vertical - 1)]
+            for j in range(1, self.num_vertical - 1):
+                prev_idx =  self.matrix[j][i-1]
+                prev_piece = self.listsubimage[prev_idx]
+                prev_right = prev_piece.difference_side[1]
+                arr_right = [ (diff, idx) for diff, idx in prev_right if idx not in self.piece_except]
+                arr_ver[j - 1] = arr_right[:10]
+            arr = matrix_creator.get_min_distance_matrix(arr_ver, self.matrix, i, self.listsubimage)
+
+            draw_matrix(arr[0].matrix, self.listsubimage)
+            break
+            bac = ""
+
+    def brute_force(self):
+        arr_remain = [piece.piecenum for piece in self.listsubimage if piece.piecenum not in self.piece_except]
+        matrix_creator.brute_force(arr_remain, self.matrix, self.listsubimage)
+
     def solve(self):
         self.solve_border()
-        image = draw_matrix(self.matrix, self.listsubimage)
-        image.save("./assets/without_original.png")
+        self.find_diff_list(self.listsubimage)
+        [ piece.init_different_side() for piece in self.listsubimage]
+
+        # image = draw_matrix(self.matrix, self.listsubimage)
+        # image.save("./assets/without_original.png")

@@ -50,7 +50,7 @@ class Diff(object):
 
 class DiffRGB(Diff):
     def __init__(self):
-        self.PIXEL_DIFFERENCE_THRESHOLD = 10
+        self.PIXEL_DIFFERENCE_THRESHOLD = 20
 
     def side_difference(self, side1, side2):
         difference = 0
