@@ -66,9 +66,11 @@ Chạy lệnh `python main.py` để thấy được kết quả
 - Khoảng cách các miếng được tính bằng tổng sự sai khác màu của cả 4 viền
 - Sự sai khác màu được tính bằng tổng trị tuyệt đối 3 kênh màu RGB giữa 2 pixcel, 2 điểm được coi là giống nhau nếu hiệu 3 kênh màu nhỏ hơn threshold mà em đặt ra là 25
 - Khi có số lượng mảnh nằm ngang và nằm dọc, tìm được một số vị trí của mảnh nằm ở viền biên ngoài
-![](./assets/without_original.png)
 - Đầu tiên em định for lần lượt từ trái sang phải, dựa vào việc minimize khoảng cách của cạnh phía trên và cạnh bên phải của miếng (piece) cần xét. Do không thể minimize 2 đỉnh còn lại nên có một số trường hợp bị sai.
 - Em đã thử một số cách so sánh màu khác ví dụ như CIELAB color space sau đó tính khoảng cách euclid tuy nhiên do khó debug tìm lỗi nên hiện tại e vẫn đang dùng khoảng cách điểm sai khác màu RGB
 - Tiếp đó sau khi đã có được viền ngoài, for theo chiều dọc, lần lượt từ trái sang phải cho đến khi hết ảnh.
+
+![](./assets/without_original.png)
+
 - Mỗi lần for sẽ minimize khoảng cách giữa các miếng trong toàn ma trận ảnh
 - Còn một cách cuối cùng ít bị sai khác nhưng hơi lâu đó là dùng BFS để tìm kiếm. Chúng ta đã có ma trận các piece, ngoài viền ngoài đã xác định được ra, chúng ta sẽ tìm tất cả các trường hợp có thể xảy ra, rồi minize khoảng cách của ma trận đó
