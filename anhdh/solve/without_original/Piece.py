@@ -7,7 +7,7 @@ import cv2
 import math
 import operator
 
-from anhdh.solve.without_original.Edge import Edge
+from anhdh.solve.original.Edge import Edge
 from anhdh.solve.TypeEdge import *
 
 class Piece(object):
@@ -24,7 +24,7 @@ class Piece(object):
         self.sideRight = []
         self.sideDown = []
         self.sideLeft = []
-
+   
         self.edgeUp, self.edgeDown, self.edgeLeft, self.edgeRight = None, None, None,None
         self.init_side()
 

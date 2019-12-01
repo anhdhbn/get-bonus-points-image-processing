@@ -63,7 +63,7 @@ def draw_matrix(matrix, subimage):
                 write_down = True
                 current_width = 0
             idx = matrix[i][j]
-            if idx ==  None: 
+            if idx ==  -1: 
                 current_width+= add_width
                 continue
             current_piece = subimage[idx]

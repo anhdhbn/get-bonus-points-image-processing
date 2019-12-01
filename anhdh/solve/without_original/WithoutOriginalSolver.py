@@ -67,7 +67,7 @@ class WithoutOriginalSolver(Common):
                 (piece.edgeUp.typeEdge != TypeEdge.BORDER) ):
                 self.piece_vertical.append(piece)
                 # print(piece.edgeUp.typeEdge, piece.edgeRight.typeEdge, piece.edgeDown.typeEdge, piece.edgeLeft.typeEdge)
-                # cv2.imwrite(f"./test/{vertical}.png", piece.image)
+                # cv2.imwrite(f"./test/{vertical}.png", piece.image) 
         self.horizontal = len(self.piece_horizontal) + 2
         self.vertical = len(self.piece_vertical) + 2
 
@@ -576,7 +576,7 @@ class WithoutOriginalSolver(Common):
             self.append_list_matrix(matrix)
             
 
-    def find_neighbors(self, origin_list_piece, head_point,  end_point, matrix_orented_func, piece_except=[]):
+    def find_neighbors(self, origin_list_piece, head_point, end_point, matrix_orented_func, piece_except=[]):
         debug = (head_point == 67 and end_point == 58)
         
         temp_list_piece = [piece.piecenum for piece in  origin_list_piece if piece.piecenum not in piece_except]

@@ -7,7 +7,7 @@ import cv2
 import math
 import operator
 
-from anhdh.solve.without_original.Edge import Edge
+from anhdh.solve.original.Edge import Edge
 from anhdh.solve.TypeEdge import *
 from anhdh.solve.original import preprocessing
 
@@ -24,6 +24,8 @@ class Piece(object):
         self.img_cnt = img_cnt
         self.init_side()
         self.pos_origin_x, self.pos_origin_x = None, None
+        self.difference_side = [[] for i in range(4)]
+        self.difference = [None for x in range(total)]
     
     def init_side(self):
         denta = 5
@@ -79,7 +81,10 @@ class Piece(object):
 
         self.side = [sideUp, sideRight, sideDown, sideLeft]
         self.edge = [edgeUp, edgeRight, edgeDown, edgeLeft]
-    
+    def check_has_type(self, position, typeEdge: TypeEdge):
+        current = self.edge
+        return current[position].typeEdge == typeEdge
+
     def check_type(self, position, typeEdge: TypeEdge):
         current = self.edge
         if current[position].typeEdge == typeEdge:
@@ -91,9 +96,10 @@ class Piece(object):
         else:
             return False
         
-    def check_type_2(self, positions, type):
+    def check_type_2(self, positions, typeEdge):
         for pos in positions:
-            if not self.check_type(pos, typeEdge): return False
+            if not self.check_has_type(pos, typeEdge): 
+                return False
         current = self.edge
         for i in range(len(current)):
             if i in positions: continue
@@ -116,3 +122,14 @@ class Piece(object):
         self.pos_origin_y = y_avg - y_up
 
 
+    def init_different_side(self, except_piece=[]):
+        for idx in range(len(self.difference)):
+            if idx in except_piece: continue
+            arr_diff = self.difference[idx]
+            if(arr_diff is None): continue
+            for diff, direction in arr_diff:
+                self.difference_side[direction].append((diff, idx))
+                # if  diff <  1000:
+                    # self.difference_side[direction].append((diff, idx))
+        for i in range(4):
+            self.difference_side[i] = sorted(self.difference_side[i])
