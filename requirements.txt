@@ -1,0 +1,5 @@
+Pillow
+pixsaw
+cairosvg
+opencv-python
+opencv-contrib-python
