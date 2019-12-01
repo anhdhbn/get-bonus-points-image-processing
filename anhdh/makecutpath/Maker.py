@@ -65,7 +65,6 @@ class Maker(Common):
         
     
     def append_circle(self, p, v, n, center, radius, start_angle, end_angle):
-
         # Fraction of the circle we're covering, in radians.
         angle_span = end_angle - start_angle
 
