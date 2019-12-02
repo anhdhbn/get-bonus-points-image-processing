@@ -77,4 +77,6 @@ Chạy lệnh `python main.py` để thấy được kết quả
 
 ### 3.5 Kết luận
 
+Nếu tạo ra ảnh nhỏ theo cách random,(vị chính hố không ở chính giữa nữa mà ở lệnh sang 2 bên xíu, cách cạnh không mặc định quay về một phía nữa) rồi dựa vào vị trí các cạnh gồ lên hay thụt xuống sẽ giảm số trường hợp xuống và sẽ giải quyết được bài toán này. Em cũng chưa thấy ai giải quyết bài toàn này mà dùng ảnh không random vị trí như em ạ.
+
 Em đã cố gắng thử tất cả các cách, các khả năng mà em có thể nghĩ ra, e cũng dành khá nhiều thời gian nó từ lúc bắt đầu. Tuy nhiên do kiến thức của em có hạn, nên em dừng lại ở đây ạ!
