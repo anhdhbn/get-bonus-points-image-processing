@@ -48,7 +48,8 @@ Chạy lệnh `python main.py` để thấy được kết quả
 
 ### 3.3 Ghép lại ảnh **có** dùng ảnh gốc
 
-- Đối với trường hợp có dùng ảnh gốc, em sử dụng thuật toán template matching. Kết quả có độ chính xác khá cao. 
+- Đối với trường hợp có dùng ảnh gốc, em sử dụng thuật toán template matching. Kết quả có độ chính xác khá cao.
+- Đầu tiên phải cắt được phần ảnh hình chữ nhật từ các piece để mang đi so sánh, không để để nguyên cái piece so sánh được
 - Đối với các viền của các ảnh con có thể dùng trung bình màu giữa 2 viền để trông nó mịn hơn, nhưng do thời gian có hạn nên em đã cố gắng chuyển qua làm phần 3.4
 
 ![](./assets/result.png)
