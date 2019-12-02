@@ -74,6 +74,7 @@ Chạy lệnh `python main.py` để thấy được kết quả
 ![](./assets/without_original.png)
 
 - Mỗi lần for sẽ minimize khoảng cách giữa các miếng trong toàn ma trận ảnh, tuy nhiên vẫn dễ bị sai, khi ảnh có nhiều vùng tương đồng. Có lẽ do em cắt ảnh quá giống nhau nên khó mà ghép được, e có thử tìm hiểu một số người đã làm thì họ cũng dựa vào sự phù hợp của các cạnh (via dụ lồi khớp với lõm) họ cũng dùng so sánh không gian màu **RGB** và **CIELAB** nhưng có lẽ do hình của họ random nên dễ ít trường hợp hơn là của em.
+- Em đã thử brute force nhưng do bùng nổ số lượng trường hợp quá nên không thành công ạ.
 
 ### 3.5 Kết luận
 
